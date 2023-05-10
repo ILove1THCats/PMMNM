@@ -80,7 +80,7 @@
 </head>
 <body>
 	<div id="wrapper">
-	  <form action="" id="form-login">
+	  <form action="/login" id="form-login" method="post">
 	    <h1 class="form-heading">Form đăng nhập</h1>
 	    <div class="form-group">
 	      <input type="text" class="form-input" placeholder="Tên đăng nhập">

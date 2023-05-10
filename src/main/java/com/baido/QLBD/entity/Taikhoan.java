@@ -6,15 +6,28 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "taikhoan")
 public class Taikhoan {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private String tenDN;
 	private String sdt; 
 	private String matkhau;
+	
+	public Taikhoan() {
+		super();
+	}
+	
+	public Taikhoan(String tenDN, String matkhau) {
+		super();
+		this.tenDN = tenDN;
+		this.matkhau = matkhau;
+	}
+	public Taikhoan(String tenDN, String sdt, String matkhau) {
+		super();
+		this.tenDN = tenDN;
+		this.sdt = sdt;
+		this.matkhau = matkhau;
+	}
+	
 	public String getTenDN() {
 		return tenDN;
 	}
