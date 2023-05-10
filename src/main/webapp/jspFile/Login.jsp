@@ -80,13 +80,13 @@
 </head>
 <body>
 	<div id="wrapper">
-	  <form action="/login" id="form-login" method="post">
-	    <h1 class="form-heading">Form đăng nhập</h1>
+	  <form action="/QLProject/memay" id="form-login" method="POST">
+	    <h1 class="form-heading">Đăng Nhập</h1>
 	    <div class="form-group">
-	      <input type="text" class="form-input" placeholder="Tên đăng nhập">
+	      <input type="text" name = "tendn" class="form-input" placeholder="Tên đăng nhập">
 	    </div>
 	    <div class="form-group">
-	      <input type="password" class="form-input" placeholder="Mật khẩu" id="password">
+	      <input type="password" name = "password" class="form-input" placeholder="Mật khẩu" id="password">
 	      <label for="show-password">
 	        <input type="checkbox" id="show-password"> Hiện mật khẩu
 	      </label>

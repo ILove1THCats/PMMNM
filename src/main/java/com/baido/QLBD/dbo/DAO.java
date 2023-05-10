@@ -27,6 +27,7 @@ public class DAO implements TaikhoanRepository {
 	        statement.setString(2, tk.getMatkhau());
 	        ResultSet rs = statement.executeQuery();
 	        if (rs.next()) {
+	        	System.out.print("Dasdasd");
 	            return true;
 	        }
 		} catch (SQLException e) {

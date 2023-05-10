@@ -1,5 +1,6 @@
 package com.baido.QLBD.api;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.baido.QLBD.entity.Taikhoan;
 
 //Controller + ResponseBody 
-@RestController
+@Controller
 public class NewAPI {
 	
 	@RequestMapping("/")
@@ -19,7 +20,11 @@ public class NewAPI {
 		
 		return "index";
 	}
-	
+	@RequestMapping("/lon")
+	public String lon(Model model) {
+		
+		return "Login";
+	}
 //	//Post + 
 //	@PostMapping(value = "/new")
 //	public Taikhoan createTK(@RequestBody Taikhoan model) {

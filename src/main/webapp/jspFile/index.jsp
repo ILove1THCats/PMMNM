@@ -189,7 +189,8 @@ font-size: 11px;
 				<li><a href="khu_vuc_do.jsp"><i class="fa fa-heart"></i> Khu vực đỗ</a></li>
 				<li><a href="xe_ra.jsp"><i class="fa fa-arrow-circle-left"></i> Xe ra</a></li>
 				<li><a href="thanh_toan.jsp"><i class="fa fa-money"></i> Thanh toán</a></li>
-				<li><a href="Login.jsp"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+				<li><a href="/QLProject/lon"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+				<li>${tenDN}</li>
 			</ul>
 		</div>
 		<div class="main">
