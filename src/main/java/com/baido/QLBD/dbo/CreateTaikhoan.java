@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.baido.QLBD.Repository.TaikhoanRepository;
+import com.baido.QLBD.Repository.TaikhoanDAO;
 import com.baido.QLBD.entity.Taikhoan;
 
 @Controller //Biến đổi class này thành 1 controller

@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -19,14 +20,12 @@ public class Config {
 		view.setSuffix(".jsp");
 		return view;
 	}
-	
-	public void configureViewResolvers(ViewResolverRegistry registry) {
-        registry.jsp("./jspFile/", ".jsp");
-    }
   
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
     }
-
-
+    
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    	registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
+    }
 }

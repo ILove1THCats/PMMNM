@@ -1,9 +1,11 @@
-package com.baido.QLBD.Controller;
+package com.baido.QLBD.api;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import com.baido.QLBD.dbo.DAO;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.support.DaoSupport;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,26 +15,35 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.baido.QLBD.dbo.DAO;
+import com.baido.QLBD.DAO.DAO;
+import com.baido.QLBD.Repository.TaikhoanDAO;
 import com.baido.QLBD.entity.Taikhoan;
 
 @Controller
 public class TaikhoanController {
 	
+	@Autowired
+	private TaikhoanDAO dao;
+	
 	@PostMapping("/memay") //Ánh xạ tới các request dạng Post.
-	public String kiemtraTk (@RequestParam String tendn, @RequestParam String password) {
+	public ModelAndView kiemtraTaikhoan (ModelAndView model, @RequestParam String tendn, @RequestParam String password) {
 		//@ResponseBody trả về giá trị String là cái phản hồi, không phải là tên view
 		//@RequestParam nhận lấy tham số từ GET hoặc POST
 		Taikhoan tk = new Taikhoan();
 		tk.setTenDN(tendn);
 		tk.setMatkhau(password);
 		
-		List<Taikhoan> taik = new ArrayList<Taikhoan>();
-		taik.add(tk);
-		kiemtraTk(tendn, password);
+		Taikhoan ty = dao.KiemtraTK(tk);
+		if(ty != null) {
+			model.addObject("ten", ty);
+			model.setViewName("index");
+			return model;
+		}
 		
-		return "Saved";	
+		model.setViewName("Login");
+		return model;	
 	}
 	
 	@PutMapping(path="/editTK")

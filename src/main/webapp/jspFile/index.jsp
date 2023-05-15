@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -181,6 +182,7 @@ font-size: 11px;
 </style>
 <body>
 <div class="container">
+		<p>${ten.tenDN}</p>
 		<div class="menu">
 			<h3>Menu</h3>
 			<ul>
