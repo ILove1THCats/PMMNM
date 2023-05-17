@@ -24,8 +24,4 @@ public class Config {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
     }
-    
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-    	registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
-    }
 }

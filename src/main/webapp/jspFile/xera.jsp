@@ -154,7 +154,7 @@ table {
 			<ul>
 				<li><a href="/QLProject/"><i class="fa fa-home"></i> Trang chủ</a></li>
 				<li><a href="/QLProject/xe_vao"><i class="fa fa-arrow-circle-right"></i> Xe vào</a></li>
-				<li><a href="/QLProject/khu_vuc_do"><i class="fa fa-heart"></i> Khu vực đỗ</a></li>
+				<li><a href="/QLProject/khu_vuc_do.jsp"><i class="fa fa-heart"></i> Khu vực đỗ</a></li>
 				<li><a href="/QLProject/xe_ra"><i class="fa fa-arrow-circle-left"></i> Xe ra</a></li>
 				<li><a href="thanh_toan.jsp"><i class="fa fa-money"></i> Thanh toán</a></li>
 				<li><a href="/QLProject/lon"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
@@ -167,22 +167,34 @@ table {
 			    <button type="submit">Tìm kiếm</button>
 			  </form>
 			</div>
-			<h1>Bãi đỗ</h1>
+			<h1>Xe Ra</h1>
 			<table>
 			    <tr>
-			    	<th>ID Bãi đỗ</th>
-			        <th>Tên bãi đỗ</th>
-			        <th>Số lượng</th>
-			        <th>Chỗ trống</th>
+			    	<th>ID Xe Ra</th>
+			        <th>ID Thẻ</th>
+			        <th>Bảng số xe</th>
+			        <th>Ngày ra</th>
+			        <th>Giờ</th>
+			        <th>Đơn giá</th>
+			        <th>Xóa</th>
 			    </tr>
-			    <c:forEach var="kv" items="${kvd}">
+			    <c:forEach var="xe" items="${xeV}">
 						<tr>
-							<td>${kv.iDBD}</td>
-							<td>${kv.tenBD}</td>
-							<td>${kv.sLuong}</td>
+							<td>${xe.iDXeRa}</td>
+							<td>${xe.iDThe}</td>
+							<td>${xe.bSX}</td>
+							<td>${xe.ngayra}</td>
+							<td>${xe.gio}</td>
+							<td>${xe.dongia}</td>
+							<td><a href="/QLProject/xoaxeR?id=${xe.iDXeRa}">Xóa</a></td>
 						</tr>
 				</c:forEach>
 			</table>
+			<div class="add">
+				<button>
+					<a href="/QLProject/themXeRa">Thêm Xe Ra</a>
+				</button>
+			</div>
 		</div>
 </div>
 </body>

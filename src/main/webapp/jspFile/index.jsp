@@ -186,13 +186,13 @@ font-size: 11px;
 		<div class="menu">
 			<h3>Menu</h3>
 			<ul>
-				<li><a href="index.jsp"><i class="fa fa-home"></i> Trang chủ</a></li>
-				<li><a href="xe_vao.jsp"><i class="fa fa-arrow-circle-right"></i> Xe vào</a></li>
-				<li><a href="khu_vuc_do.jsp"><i class="fa fa-heart"></i> Khu vực đỗ</a></li>
-				<li><a href="xe_ra.jsp"><i class="fa fa-arrow-circle-left"></i> Xe ra</a></li>
+				<li><a href="/QLProject/"><i class="fa fa-home"></i> Trang chủ</a></li>
+				<li><a href="/QLProject/xe_vao"><i class="fa fa-arrow-circle-right"></i> Xe vào</a></li>
+				<li><a href="/QLProject/khu_vuc_do"><i class="fa fa-heart"></i> Khu vực đỗ</a></li>
+				<li><a href="/QLProject/xe_ra"><i class="fa fa-arrow-circle-left"></i> Xe ra</a></li>
 				<li><a href="thanh_toan.jsp"><i class="fa fa-money"></i> Thanh toán</a></li>
 				<li><a href="/QLProject/lon"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
-				<li>${tenDN}</li>
+				<li>${ten.tenDN}</li>
 			</ul>
 		</div>
 		<div class="main">
@@ -200,41 +200,41 @@ font-size: 11px;
                 <div class="mySlides fade">
                   <div class="numbertext">1 / 6</div>
                   <a href="index.jsp">
-                  <img src="./img/anh1.jpg" style="width:100%; height:500px" >
+                  <img src="/img/anh1.jpg" style="width:100%; height:500px" >
                   <div class="text">Trang Chủ</div>
                 </div>
             
                 <div class="mySlides fade">
                   <div class="numbertext">2 / 6</div>
                   <a href="xe_vao.jsp">
-                  <img src="./img/anh2.jpg" style="width:100%; height:500px">
+                  <img src="/img/anh2.jpg" style="width:100%; height:500px">
                   <div class="text">Xe Vào</div>
                 </div>
             
                 <div class="mySlides fade">
                   <div class="numbertext">3 / 6</div>
                   <a href="khu_vuc_do.jsp">
-                  <img src="./img/anh3.jpg" style="width:100%; height:500px">
+                  <img src="/img/anh3.jpg" style="width:100%; height:500px">
                   <div class="text">Khu vực đỗ</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">4 / 6</div>
                     <a href="xe_ra.jsp">
-                    <img src="./img/anh4.jpg" style="width:100%; height:500px">
+                    <img src="/img/anh4.jpg" style="width:100%; height:500px">
                     <div class="text">Xe Ra</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">5 / 6</div>
                     <a href="thanh_toan.jsp">
-                    <img src="./img/anh5.jpg" style="width:100%; height:500px">
+                    <img src="/img/anh5.jpg" style="width:100%; height:500px">
                     <div class="text">Thanh Toán</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">6 / 6</div>
-                    <img src="./img/anh6.jpg" style="width:100%; height:500px">
+                    <img src="/img/anh6.jpg" style="width:100%; height:500px">
                     <div class="text">Caption Three</div>
                 </div>
             
