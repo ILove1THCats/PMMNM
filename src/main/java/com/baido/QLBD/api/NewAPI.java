@@ -1,5 +1,7 @@
 package com.baido.QLBD.api;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,7 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.baido.QLBD.entity.Taikhoan;
 
-//Controller + ResponseBody 
+import jakarta.servlet.http.HttpServletRequest;
+
+//Controller + ResponseBody = RestController
 @Controller
 public class NewAPI {
 
@@ -39,6 +43,21 @@ public class NewAPI {
 	public String themXeRa() {
 
 		return "themXeRa";
+	}
+	
+	@RequestMapping("/thanhtoan")
+	public String thanhtoan() {
+
+		
+		return "thanhtoan";
+	}
+	
+	@RequestMapping("/logout")
+	public String dangxuat(HttpServletRequest request) {
+		
+		jakarta.servlet.http.HttpSession session = request.getSession();
+		session.removeAttribute("user");
+		return "index";
 	}
 //	@RequestMapping("/kvd")
 //	public String kvd(M)

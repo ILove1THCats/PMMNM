@@ -53,6 +53,27 @@ public class xeraDAOImpl implements xeraDAO {
 		String sql = "Delete from xera where IDXeRa = ?";
 		jdbcTemplate.update(sql, id);
 	}
+
+	@Override
+	public List<xera> search(String name) {
+		// TODO Auto-generated method stub
+		String sql = "Select * from xera where IDXeRa LIKE ?";
+		List<xera> xr = jdbcTemplate.query(sql ,ps -> {
+			String pre = "%" + name + "%";
+			ps.setString(1, pre);
+		}, (rs, rowNum) -> {
+			xera xe = new xera();
+			xe.setiDXeRa(rs.getString("IDXeRa"));
+			xe.setiDThe(rs.getString("IDThe"));
+			xe.setbSX(rs.getString("BSX"));
+			xe.setNgayra(rs.getTimestamp("Ngayra").toString());
+			xe.setGio(rs.getInt("Gio"));
+			xe.setDongia(rs.getFloat("Dongia"));
+			
+			return xe;
+		});
+		return xr;
+	}
 	
 	
 }

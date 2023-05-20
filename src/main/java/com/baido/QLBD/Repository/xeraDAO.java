@@ -9,6 +9,8 @@ public interface xeraDAO {
 	
 	public List<xera> list();
 	
+	public List<xera> search(String name);
+	
 	public void themXeRa(xera xr);
 	
 	public void xoaXeRa(String id);

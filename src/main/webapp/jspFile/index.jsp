@@ -1,3 +1,4 @@
+<%@page import="org.springframework.web.context.request.SessionScope"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false" %>
@@ -182,7 +183,6 @@ font-size: 11px;
 </style>
 <body>
 <div class="container">
-		<p>${ten.tenDN}</p>
 		<div class="menu">
 			<h3>Menu</h3>
 			<ul>
@@ -190,51 +190,55 @@ font-size: 11px;
 				<li><a href="/QLProject/xe_vao"><i class="fa fa-arrow-circle-right"></i> Xe vào</a></li>
 				<li><a href="/QLProject/khu_vuc_do"><i class="fa fa-heart"></i> Khu vực đỗ</a></li>
 				<li><a href="/QLProject/xe_ra"><i class="fa fa-arrow-circle-left"></i> Xe ra</a></li>
-				<li><a href="thanh_toan.jsp"><i class="fa fa-money"></i> Thanh toán</a></li>
-				<li><a href="/QLProject/lon"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
-				<li>${ten.tenDN}</li>
+				<li><a href="/QLProject/thanhtoan"><i class="fa fa-money"></i> Thanh toán</a></li>
+				<% if (session.getAttribute("user") != null) { %>
+					<li><a href="/QLProject/logout"><i class="fa fa-sign-in"></i> Đăng xuất</a></li>
+					<li><p>Tên người dùng: <%=session.getAttribute("user")%></p></li>
+				<% } else { %>
+					<li><a href="/QLProject/lon"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+				<% } %>
 			</ul>
 		</div>
 		<div class="main">
 			<div class="slideshow-container">
                 <div class="mySlides fade">
                   <div class="numbertext">1 / 6</div>
-                  <a href="index.jsp">
-                  <img src="/img/anh1.jpg" style="width:100%; height:500px" >
+                  <a href="/QLProject/">
+                  <img src="${pageContext.request.contextPath}/img/anh1.jpg" style="width:100%; height:500px" >
                   <div class="text">Trang Chủ</div>
                 </div>
             
                 <div class="mySlides fade">
                   <div class="numbertext">2 / 6</div>
-                  <a href="xe_vao.jsp">
-                  <img src="/img/anh2.jpg" style="width:100%; height:500px">
+                  <a href="/QLProject/xe_vao">
+                  <img src="${pageContext.request.contextPath}/img/anh2.jpg" style="width:100%; height:500px">
                   <div class="text">Xe Vào</div>
                 </div>
             
                 <div class="mySlides fade">
                   <div class="numbertext">3 / 6</div>
-                  <a href="khu_vuc_do.jsp">
-                  <img src="/img/anh3.jpg" style="width:100%; height:500px">
+                  <a href="/QLProject/khu_vuc_do">
+                  <img src="${pageContext.request.contextPath}/img/anh3.jpg" style="width:100%; height:500px">
                   <div class="text">Khu vực đỗ</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">4 / 6</div>
-                    <a href="xe_ra.jsp">
-                    <img src="/img/anh4.jpg" style="width:100%; height:500px">
+                    <a href="/QLProject/xe_ra">
+                    <img src="${pageContext.request.contextPath}/img/anh4.jpg" style="width:100%; height:500px">
                     <div class="text">Xe Ra</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">5 / 6</div>
                     <a href="thanh_toan.jsp">
-                    <img src="/img/anh5.jpg" style="width:100%; height:500px">
+                    <img src="${pageContext.request.contextPath}/img/anh5.jpg" style="width:100%; height:500px">
                     <div class="text">Thanh Toán</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">6 / 6</div>
-                    <img src="/img/anh6.jpg" style="width:100%; height:500px">
+                    <img src="${pageContext.request.contextPath}/img/anh6.jpg" style="width:100%; height:500px">
                     <div class="text">Caption Three</div>
                 </div>
             

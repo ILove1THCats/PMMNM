@@ -8,6 +8,8 @@ public interface xevaoDAO {
 	
 	public List<xevao> list();
 	
+	public List<xevao> search(String name);
+	
 	public void themXeVao(xevao xv);
 	
 	public void xoaXeVao(String id);

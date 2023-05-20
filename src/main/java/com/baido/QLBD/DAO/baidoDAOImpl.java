@@ -32,6 +32,23 @@ public class baidoDAOImpl implements baidoDAO {
 			return baid;
 		});
 		return bd;
+	}
+
+	@Override
+	public List<baido> search(String name) {
+		// TODO Auto-generated method stub
+		String sql = "Select * from baido where IDBD LIKE ?";
+		List<baido> bd = jdbcTemplate.query(sql ,ps -> {
+			String pre = "%" + name + "%";
+			ps.setString(1, pre);
+		}, (rs, rowNum) -> {
+			baido baid = new baido();
+			baid.setIDBD(rs.getString("IDBD"));
+			baid.setTenBD(rs.getString("TenBD"));
+			baid.setSLuong(rs.getInt("SLuong"));
+			return baid;
+		});	
+		return bd;
 	}	
 
 }

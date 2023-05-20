@@ -76,7 +76,7 @@
         <input type="text" id="baiDo" name="baiDo" required><br><br>
         
         <label for="bsxImage">Bảng số xe:</label>
-        <input type="text" id="bsxImage" name="bsxImage" accept="image/*" required><br><br>
+        <input type="file" id="bsxImage" name="bsxImage" accept="image/*" required><br><br>
 
 		<label for="gio">Loại xe:</label>
         <input type="number" id="loai" name="loai" required><br><br>

@@ -1,5 +1,6 @@
 package com.baido.QLBD.api;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,10 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.baido.QLBD.Repository.xevaoDAO;
 import com.baido.QLBD.entity.xevao;
+
+import jakarta.servlet.jsp.PageContext;
 
 @Controller
 public class xevaoController {
@@ -28,16 +32,17 @@ public class xevaoController {
 	}
 	
 	@PostMapping("/themxV")
-	public String addXeVao(@RequestParam String iDXeVao, @RequestParam String iDThe , @RequestParam String baiDo, @RequestParam String bsxImage
-			, @RequestParam String loai, @RequestParam String ngayvao) {
+	public String addXeVao(@RequestParam String iDXeVao, @RequestParam String iDThe , @RequestParam String baiDo, 
+			@RequestParam MultipartFile bsxImage, @RequestParam String loai, @RequestParam String ngayvao) throws IOException {
 		if(iDXeVao == null) {
 			return "themXeVao";
 		}
+		String content = "/QLProject/img/" + bsxImage.getOriginalFilename();
 		xevao xv = new xevao();
 		xv.setIdXe(iDXeVao);
 		xv.setIdThe(iDThe);
 		xv.setIdBD(baiDo);
-		xv.setBsx(bsxImage);
+		xv.setBsx(content);
 		xv.setLoai(loai);
 		xv.setNgayVao(ngayvao);
 		
@@ -51,6 +56,15 @@ public class xevaoController {
 		
 		xeVao.xoaXeVao(id);
 		return "redirect:/xe_vao";		
+	}
+	
+	@GetMapping("/searchXV")
+	public ModelAndView searchXV(ModelAndView model, @RequestParam String keyword) {
+		
+		List<xevao> xv = xeVao.search(keyword);
+		model.addObject("xeV", xv);
+		model.setViewName("xevao");
+		return model;
 	}
 
 }

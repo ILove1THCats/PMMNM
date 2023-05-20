@@ -154,15 +154,20 @@ table {
 			<ul>
 				<li><a href="/QLProject/"><i class="fa fa-home"></i> Trang chủ</a></li>
 				<li><a href="/QLProject/xe_vao"><i class="fa fa-arrow-circle-right"></i> Xe vào</a></li>
-				<li><a href="/QLProject/khu_vuc_do.jsp"><i class="fa fa-heart"></i> Khu vực đỗ</a></li>
+				<li><a href="/QLProject/khu_vuc_do"><i class="fa fa-heart"></i> Khu vực đỗ</a></li>
 				<li><a href="/QLProject/xe_ra"><i class="fa fa-arrow-circle-left"></i> Xe ra</a></li>
-				<li><a href="thanh_toan.jsp"><i class="fa fa-money"></i> Thanh toán</a></li>
-				<li><a href="/QLProject/lon"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+				<li><a href="/QLProject/thanhtoan"><i class="fa fa-money"></i> Thanh toán</a></li>
+				<% if (session.getAttribute("user") != null) { %>
+					<li><a href="/QLProject/logout"><i class="fa fa-sign-in"></i> Đăng xuất</a></li>
+					<li><p>Tên người dùng: <%=session.getAttribute("user")%></p></li>
+				<% } else { %>
+					<li><a href="/QLProject/lon"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+				<% } %>
 			</ul>
 		</div>
 		<div class="main">
 			<div class="search-container">
-			  <form action="/search" method="GET">
+			  <form action="/QLProject/searchXR" method="GET">
 			    <input type="text" placeholder="Nhập từ khóa" name="keyword">
 			    <button type="submit">Tìm kiếm</button>
 			  </form>
@@ -182,7 +187,7 @@ table {
 						<tr>
 							<td>${xe.iDXeRa}</td>
 							<td>${xe.iDThe}</td>
-							<td>${xe.bSX}</td>
+							<td><img src="${xe.bSX}" style="width:50px; height:40px"></td>
 							<td>${xe.ngayra}</td>
 							<td>${xe.gio}</td>
 							<td>${xe.dongia}</td>

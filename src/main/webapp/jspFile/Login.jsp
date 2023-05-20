@@ -80,7 +80,7 @@
 </head>
 <body>
 	<div id="wrapper">
-	  <form action="/QLProject/memay" id="form-login" method="POST">
+	  <form action="/QLProject/login" id="form-login" method="POST">
 	    <h1 class="form-heading">Đăng Nhập</h1>
 	    <div class="form-group">
 	      <input type="text" name = "tendn" class="form-input" placeholder="Tên đăng nhập">

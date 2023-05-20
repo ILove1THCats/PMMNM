@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,76 +74,64 @@ background-color: #ddd;
 	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
 	margin-left: 20px;
 }
-.search-container {
-  text-align: center;
-  margin-top: 20px;
-}
+.container1 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+  }
 
-.search-container input[type=text] {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
 
-.search-container button {
-  padding: 8px 12px;
-  background: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.search-container button:hover {
-  background: #45a049;
-}
-
-table {
-        width: 100%;
-        border-collapse: collapse;
+    h2 {
+      color: #333;
     }
-
-    th, td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
+  
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-
-    th {
-        background-color: #f2f2f2;
+  
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #666;
     }
-
-    img {
-        width: 100px;
-        height: 100px;
+  
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 14px;
+      margin-bottom: 10px;
     }
-}
-.add {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.add button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.add button a {
-    color: white;
-    text-decoration: none;
-}
-
-.add button:hover {
-    background-color: #45a049;
-}
-
+  
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
 </style>
 </head>
 <body>
@@ -166,28 +153,34 @@ table {
 			</ul>
 		</div>
 		<div class="main">
-			<div class="search-container">
-			  <form action="/QLProject/searchkvd" method="GET">
-			    <input type="text" placeholder="Nhập từ khóa" name="keyword">
-			    <button type="submit">Tìm kiếm</button>
-			  </form>
-			</div>
-			<h1>Bãi đỗ</h1>
-			<table>
-			    <tr>
-			    	<th>ID Bãi đỗ</th>
-			        <th>Tên bãi đỗ</th>
-			        <th>Số lượng</th>
-			        <th>Chỗ trống</th>
-			    </tr>
-			    <c:forEach var="kv" items="${kvd}">
-						<tr>
-							<td>${kv.iDBD}</td>
-							<td>${kv.tenBD}</td>
-							<td>${kv.sLuong}</td>
-						</tr>
-				</c:forEach>
-			</table>
+			<h1>Thanh toán</h1>
+			<div class="container1">
+			    <form action="/thanh-toan" method="POST">
+			        <div>
+			          <label for="id_xe">ID Xe:</label>
+			          <input type="text" id="id_xe" name="id_xe" required>
+			        </div>
+			        <div>
+			          <label for="bien_so">Biển số:</label>
+			          <input type="text" id="bien_so" name="bien_so" required>
+			        </div>
+			        <div>
+			          <label for="hinh_thuc_thanh_toan">Hình thức thanh toán:</label>
+			          <select id="hinh_thuc_thanh_toan" name="hinh_thuc_thanh_toan" required>
+			            <option value="tien_mat">Tiền mặt</option>
+			            <option value="the_ngan_hang">Thẻ ngân hàng</option>
+			            <option value="vi_dien_tu">Ví điện tử</option>
+			          </select>
+			        </div>
+			        <div>
+			          <label for="so_tien">Số tiền:</label>
+			          <input type="number" id="so_tien" name="so_tien" required>
+			        </div>
+			        <div>
+			          <input type="submit" value="Thanh toán">
+			        </div>
+			      </form>
+			  </div>
 		</div>
 </div>
 </body>

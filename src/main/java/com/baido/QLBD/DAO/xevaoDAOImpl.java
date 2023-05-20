@@ -55,7 +55,28 @@ public class xevaoDAOImpl implements xevaoDAO {
 		jdbcTemplate.update(sql, id);
 		
 	}
-	
+
+	@Override
+	public List<xevao> search(String name) {
+		// TODO Auto-generated method stub
+		String sql = "Select * from Xevao where IDXeVao Like ?";
+		List<xevao> xv = jdbcTemplate.query(sql ,ps -> {
+			String pre = "%" + name + "%";
+			ps.setString(1, pre);
+		}, (rs, rowNum) -> {
+			xevao xe = new xevao();
+			xe.setIdXe(rs.getString("IDXeVao"));
+			xe.setIdThe(rs.getString("IDThe"));
+			xe.setIdBD(rs.getString("IDBD"));
+			xe.setLoai(rs.getString("Loai"));
+			String str = rs.getTimestamp("Ngayvao").toString();
+			xe.setNgayVao(str);
+			xe.setBsx(rs.getString("BSX"));
+			
+			return xe;
+		});
+		return xv;
+	}
 	
 
 }

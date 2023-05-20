@@ -21,14 +21,18 @@ import com.baido.QLBD.DAO.DAO;
 import com.baido.QLBD.Repository.TaikhoanDAO;
 import com.baido.QLBD.entity.Taikhoan;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class TaikhoanController {
 	
 	@Autowired
 	private TaikhoanDAO dao;
 	
-	@PostMapping("/memay") //Ánh xạ tới các request dạng Post.
-	public ModelAndView kiemtraTaikhoan (ModelAndView model, @RequestParam String tendn, @RequestParam String password) {
+	@PostMapping("/login") //Ánh xạ tới các request dạng Post.
+	public ModelAndView kiemtraTaikhoan (ModelAndView model, @RequestParam String tendn, 
+			@RequestParam String password, HttpServletRequest request) {
 		//@ResponseBody trả về giá trị String là cái phản hồi, không phải là tên view
 		//@RequestParam nhận lấy tham số từ GET hoặc POST
 		Taikhoan tk = new Taikhoan();
@@ -37,8 +41,9 @@ public class TaikhoanController {
 		
 		Taikhoan ty = dao.KiemtraTK(tk);
 		if(ty != null) {
-			model.addObject("ten", ty);
+			HttpSession session = request.getSession();
 			model.setViewName("index");
+			session.setAttribute("user", ty.getTenDN());
 			return model;
 		}
 		
@@ -46,17 +51,17 @@ public class TaikhoanController {
 		return model;	
 	}
 	
-	@PutMapping(path="/editTK")
-	public @ResponseBody String editTaikhoan(@RequestParam String tenDN,
-			@RequestParam String sdt, @RequestParam String matkhau) {
-		
-		return "Trang nào đấy";
-	}
-	
-	@DeleteMapping(path = "/deleteTK")
-	public @ResponseBody void deleteTaikhoan(@RequestParam String tenDN) {
-		
-		System.out.println("Xong!");
-	}
+//	@PutMapping(path="/editTK")
+//	public @ResponseBody String editTaikhoan(@RequestParam String tenDN,
+//			@RequestParam String sdt, @RequestParam String matkhau) {
+//		
+//		return "Trang nào đấy";
+//	}
+//	
+//	@DeleteMapping(path = "/deleteTK")
+//	public @ResponseBody void deleteTaikhoan(@RequestParam String tenDN) {
+//		
+//		System.out.println("Xong!");
+//	}
 
 }

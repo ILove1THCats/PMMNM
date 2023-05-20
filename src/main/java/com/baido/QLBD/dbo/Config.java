@@ -7,11 +7,13 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-public class Config {
+public class Config implements WebMvcConfigurer{
 	
 	@Bean
 	public ViewResolver viewResolver() {
@@ -23,5 +25,12 @@ public class Config {
   
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
+    }
+  
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    	registry.addResourceHandler("/img/**")
+    		.addResourceLocations("classpath:/static/img/")
+    		.setCachePeriod(31556926);
     }
 }

@@ -7,5 +7,7 @@ import com.baido.QLBD.entity.baido;
 public interface baidoDAO {
 	
 	public List<baido> list();
+	
+	public List<baido> search(String name);
 
 }
