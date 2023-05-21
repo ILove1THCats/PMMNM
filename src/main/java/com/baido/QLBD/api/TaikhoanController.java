@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.baido.QLBD.DAO.DAO;
 import com.baido.QLBD.Repository.TaikhoanDAO;
 import com.baido.QLBD.entity.Taikhoan;
 

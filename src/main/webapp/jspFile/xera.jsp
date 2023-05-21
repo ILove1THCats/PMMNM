@@ -157,12 +157,8 @@ table {
 				<li><a href="/QLProject/khu_vuc_do"><i class="fa fa-heart"></i> Khu vực đỗ</a></li>
 				<li><a href="/QLProject/xe_ra"><i class="fa fa-arrow-circle-left"></i> Xe ra</a></li>
 				<li><a href="/QLProject/thanhtoan"><i class="fa fa-money"></i> Thanh toán</a></li>
-				<% if (session.getAttribute("user") != null) { %>
-					<li><a href="/QLProject/logout"><i class="fa fa-sign-in"></i> Đăng xuất</a></li>
-					<li><p>Tên người dùng: <%=session.getAttribute("user")%></p></li>
-				<% } else { %>
-					<li><a href="/QLProject/lon"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
-				<% } %>
+				<li><a href="/QLProject/logout"><i class="fa fa-sign-in"></i> Đăng xuất</a></li>
+				<li><p>Tên người dùng: <%=session.getAttribute("user")%></p></li>
 			</ul>
 		</div>
 		<div class="main">
@@ -176,7 +172,7 @@ table {
 			<table>
 			    <tr>
 			    	<th>ID Xe Ra</th>
-			        <th>ID Thẻ</th>
+			        <th>ID thanh toán</th>
 			        <th>Bảng số xe</th>
 			        <th>Ngày ra</th>
 			        <th>Giờ</th>
@@ -191,6 +187,7 @@ table {
 							<td>${xe.ngayra}</td>
 							<td>${xe.gio}</td>
 							<td>${xe.dongia}</td>
+							<td><a href="/QLProject/phieuThanhT?id=${xe.xe.iDThe}">Thanh toán</a></td>
 							<td><a href="/QLProject/xoaxeR?id=${xe.iDXeRa}">Xóa</a></td>
 						</tr>
 				</c:forEach>

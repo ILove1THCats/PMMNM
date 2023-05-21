@@ -14,6 +14,9 @@ import com.baido.QLBD.Repository.xeraDAO;
 import com.baido.QLBD.entity.xera;
 import com.baido.QLBD.entity.xevao;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class xeraController {
 	
@@ -21,8 +24,13 @@ public class xeraController {
 	private xeraDAO xeRa;
 	
 	@GetMapping("/xe_ra")
-	public ModelAndView showView(ModelAndView model) {
+	public ModelAndView showView(ModelAndView model, HttpServletRequest request) {
 		
+		HttpSession session = request.getSession();
+		if(session.getAttribute("user") == null) {
+			model.setViewName("Login");
+			return model;
+		}
 		List<xera> xv = xeRa.list();
 		model.addObject("xeV", xv);
 		model.setViewName("xera");
@@ -30,11 +38,8 @@ public class xeraController {
 	}
 	
 	@PostMapping("/themxR")
-	public String addXeVao(@RequestParam String iDXeRa, @RequestParam String iDThe , @RequestParam MultipartFile bsxImage, @RequestParam String ngayra
-			, @RequestParam String gio, @RequestParam String dongia) {
-		if(iDXeRa == null) {
-			return "themXeRa";
-		}
+	public String addXeVao(@RequestParam String iDXeRa, @RequestParam String iDThe , @RequestParam MultipartFile bsxImage, 
+			@RequestParam String ngayra, @RequestParam String gio, @RequestParam String dongia) {
 		String content = "/QLProject/img/" + bsxImage.getOriginalFilename();
 		xera xr = new xera();
 		xr.setiDXeRa(iDXeRa);

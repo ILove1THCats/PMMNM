@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,13 +68,17 @@
 <body>
     <form method="post" action="/QLProject/themxR" enctype="multipart/form-data">
         <label for="iDXeRa">ID Xe Ra:</label>
-        <input type="text" id="iDXeRa" name="iDXeRa" required><br><br>
+        <select id="iDXeRa" name="iDXeRa" required>
+	    	<c:forEach var="xevao" items="${xev}">
+				<option value="${xevao.idThe}">${xevao.idThe}</option>
+			</c:forEach>
+	    </select><br><br>
 
         <label for="iDThe">ID Thẻ:</label>
         <input type="text" id="iDThe" name="iDThe" required><br><br>
 
 		<label for="bsxImage">Ảnh biển số xe:</label>
-        <input type="text" id="bsxImage" name="bsxImage" accept="image/*" required><br><br>
+        <input type="file" id="bsxImage" name="bsxImage" accept="image/*" required><br><br>
 
         <label for="ngayra">Ngày ra:</label>
         <input type="date" id="ngayra" name="ngayra" required><br><br>

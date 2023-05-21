@@ -1,11 +1,15 @@
 package com.baido.QLBD.api;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.baido.QLBD.Repository.baidoDAO;
+import com.baido.QLBD.Repository.xevaoDAO;
 import com.baido.QLBD.entity.Taikhoan;
+import com.baido.QLBD.entity.baido;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -32,18 +39,6 @@ public class NewAPI {
 
 		return "Login";
 	}
-
-	@RequestMapping("/themXeVao")
-	public String themXeVao() {
-
-		return "themXeVao";
-	}
-	
-	@RequestMapping("/themXeRa")
-	public String themXeRa() {
-
-		return "themXeRa";
-	}
 	
 	@RequestMapping("/thanhtoan")
 	public String thanhtoan() {
@@ -59,6 +54,7 @@ public class NewAPI {
 		session.removeAttribute("user");
 		return "index";
 	}
+
 //	@RequestMapping("/kvd")
 //	public String kvd(M)
 //	//Post + 

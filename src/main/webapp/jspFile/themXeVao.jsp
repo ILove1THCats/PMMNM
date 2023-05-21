@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,11 +70,15 @@
         <label for="iDXeRa">ID Xe vào:</label>
         <input type="text" id="iDXeVao" name="iDXeVao" required><br><br>
 
-        <label for="iDThe">ID Thẻ:</label>
+        <label for="iDThe">ID Xe ra:</label>
         <input type="text" id="iDThe" name="iDThe" required><br><br>
 
 		<label for="iDThe">ID Bãi đỗ:</label>
-        <input type="text" id="baiDo" name="baiDo" required><br><br>
+        <select id="khuvucdo" name="khuvucdo" required>
+	    	<c:forEach var="bai" items="${baido}">
+				<option value="${bai.IDBD}">${bai.IDBD}</option>
+			</c:forEach>
+	    </select><br><br>
         
         <label for="bsxImage">Bảng số xe:</label>
         <input type="file" id="bsxImage" name="bsxImage" accept="image/*" required><br><br>
