@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.baido.QLBD.Repository.baidoDAO;
 import com.baido.QLBD.Repository.xevaoDAO;
 import com.baido.QLBD.entity.baido;
 import com.baido.QLBD.entity.xevao;
@@ -25,6 +26,9 @@ public class xevaoController {
 	
 	@Autowired
 	private xevaoDAO xeVao;
+	
+	@Autowired
+	private baidoDAO baiDo;
 	
 	@GetMapping("/xe_vao")
 	public ModelAndView showView(ModelAndView model, HttpServletRequest request) {
@@ -41,11 +45,24 @@ public class xevaoController {
 	}
 	
 	@PostMapping("/themxV")
-	public String addXeVao(@RequestParam String iDXeVao, @RequestParam String iDThe , @RequestParam String khuvucdo, 
-			@RequestParam MultipartFile bsxImage, @RequestParam String loai, @RequestParam String ngayvao) throws IOException {
+	public ModelAndView addXeVao(@RequestParam String iDXeVao, @RequestParam String iDThe , @RequestParam String khuvucdo, 
+			@RequestParam MultipartFile bsxImage, @RequestParam String loai, @RequestParam String ngayvao,
+			HttpServletRequest request, ModelAndView model) throws IOException {
+		List<xevao> xev = xeVao.kiemtra(iDXeVao, iDThe);
 		if(iDXeVao == null) {
-			return "themXeVao";
-		}
+			
+			model.setViewName("themXeVao");
+			return model;
+		}else if(xev.size() != 0) {		
+			if (xev.get(0) != null || xev.get(1) != null) {
+				List<baido> bd = baiDo.list();
+				request.setAttribute("mes", "Có vẻ như bạn đã nhập sai ID xe vào hay ID xe ra rồi!");
+				model.addObject("baido", bd);
+				model.setViewName("themXeVao");
+				return model;
+			}	
+		};
+		
 		String content = "/QLProject/img/" + bsxImage.getOriginalFilename();
 		xevao xv = new xevao();
 		xv.setIdXe(iDXeVao);
@@ -56,8 +73,8 @@ public class xevaoController {
 		xv.setNgayVao(ngayvao);
 		
 		xeVao.themXeVao(xv);
-		
-		return "redirect:/xe_vao";
+		model.setViewName("redirect:/xe_vao");
+		return model;
 	}
 	
 	@GetMapping("/xoaxeV")

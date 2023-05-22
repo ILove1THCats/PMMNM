@@ -11,6 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.baido.QLBD.Repository.xeraDAO;
+import com.baido.QLBD.Repository.xevaoDAO;
+import com.baido.QLBD.entity.baido;
 import com.baido.QLBD.entity.xera;
 import com.baido.QLBD.entity.xevao;
 
@@ -22,6 +24,9 @@ public class xeraController {
 	
 	@Autowired
 	private xeraDAO xeRa;
+	
+	@Autowired
+	private xevaoDAO xeVao;
 	
 	@GetMapping("/xe_ra")
 	public ModelAndView showView(ModelAndView model, HttpServletRequest request) {
@@ -38,8 +43,25 @@ public class xeraController {
 	}
 	
 	@PostMapping("/themxR")
-	public String addXeVao(@RequestParam String iDXeRa, @RequestParam String iDThe , @RequestParam MultipartFile bsxImage, 
-			@RequestParam String ngayra, @RequestParam String gio, @RequestParam String dongia) {
+	public ModelAndView addXeVao(@RequestParam String iDXeRa, @RequestParam String iDThe , @RequestParam MultipartFile bsxImage, 
+			@RequestParam String ngayra, @RequestParam String gio, @RequestParam String dongia, 
+			HttpServletRequest request, ModelAndView model) {
+		
+		List<xera> xev = xeRa.kiemtra(iDXeRa, iDThe);
+		if(iDXeRa == null) {
+			
+			request.setAttribute("mes", "Thiếu ID xe ra!");
+			model.setViewName("themXeRa");
+			return model;
+		}else if(xev.size() != 0) {		
+			if (xev.get(0) != null || xev.get(1) != null) {
+				List<xevao> xv = xeVao.list();
+				request.setAttribute("mes", "Có vẻ như bạn đã nhập sai ID xe vào hay ID thanh toán rồi!");
+				model.addObject("xev", xv);
+				model.setViewName("themXeRa");
+				return model;
+			}	
+		};
 		String content = "/QLProject/img/" + bsxImage.getOriginalFilename();
 		xera xr = new xera();
 		xr.setiDXeRa(iDXeRa);
@@ -50,8 +72,8 @@ public class xeraController {
 		xr.setDongia(Float.parseFloat(dongia));
 		
 		xeRa.themXeRa(xr);
-		
-		return "redirect:/xe_ra";
+		model.setViewName("redirect:/xe_ra");
+		return model;
 	}
 	
 	@GetMapping("/xoaxeR")

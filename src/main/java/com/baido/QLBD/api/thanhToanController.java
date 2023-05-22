@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.baido.QLBD.Repository.thanhtoanDAO;
+import com.baido.QLBD.Repository.xeraDAO;
+import com.baido.QLBD.Repository.xevaoDAO;
 import com.baido.QLBD.entity.thanhtoan;
 import com.baido.QLBD.entity.xevao;
 
@@ -21,6 +23,12 @@ public class thanhToanController {
 	
 	@Autowired
 	private thanhtoanDAO thanht;
+	
+	@Autowired
+	private xeraDAO xeRa;
+	
+	@Autowired
+	private xevaoDAO xeVao;
 
 	@GetMapping("/thanhtoan")
 	public final ModelAndView showView(ModelAndView model, HttpServletRequest request) {
@@ -31,6 +39,10 @@ public class thanhToanController {
 			return model;
 		}
 		List<thanhtoan> tht = thanht.list();
+		float sum = 0;
+//		for(int i = 0; i < tht.size(); i++) {
+//			sum = sum + tht.get(3);
+//		}
 		model.addObject("thanhT", tht);
 		model.setViewName("thanhToan");
 		return model;

@@ -77,6 +77,22 @@ public class xevaoDAOImpl implements xevaoDAO {
 		});
 		return xv;
 	}
-	
 
+	@Override
+	public List<xevao> kiemtra(String iDXeVao, String iDThe) {
+		// TODO Auto-generated method stub
+		String sql = "Select IDXeVao, IDThe from Xevao where IDXeVao LIKE ? or IDThe LIKE ?";
+		List<xevao> xv = jdbcTemplate.query(sql, ps -> {
+			String idXV = "%" + iDXeVao + "%";
+			String idXeRa = "%" + iDThe + "%";
+			ps.setString(1, idXV);
+			ps.setString(2, idXeRa);
+		}, (rs, rowNum) -> {
+			xevao x = new xevao();
+			x.setIdXe(rs.getString("IDXeVao"));
+			x.setIdThe(rs.getString("IDThe"));
+			return x;
+		});
+		return xv;
+	}
 }

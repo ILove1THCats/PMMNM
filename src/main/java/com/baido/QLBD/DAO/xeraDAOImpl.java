@@ -74,6 +74,24 @@ public class xeraDAOImpl implements xeraDAO {
 		});
 		return xr;
 	}
+
+	@Override
+	public List<xera> kiemtra(String iDXeRa, String idtht) {
+		// TODO Auto-generated method stub
+		String sql = "Select IDXeRa, IDThe from xera where IDXeRa LIKE ? or IDThe LIKE ?";
+		List<xera> xr = jdbcTemplate.query(sql, ps -> {
+			String idXR = "%" + iDXeRa + "%";
+			String idTHT = "%" + idtht + "%";
+			ps.setString(1, idXR);
+			ps.setString(2, idTHT);
+		}, (rs, rowNum) -> {
+			xera x = new xera();
+			x.setiDXeRa(rs.getString("IDXeRa"));
+			x.setiDThe(rs.getString("IDThe"));
+			return x;
+		});
+		return xr;
+	}
 	
 	
 }

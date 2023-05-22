@@ -89,6 +89,9 @@
         <label for="dongia">Đơn giá:</label>
         <input type="number" id="dongia" name="dongia" step="0.01" required><br><br>
 
+		<%if(request.getAttribute("mes") != null){%>
+			<p style="color: red;"><%= request.getAttribute("mes")%></p>
+		<%}%>
         <input type="submit" value="Thêm xe ra">
     </form>
 </body>

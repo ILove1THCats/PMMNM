@@ -88,7 +88,10 @@
 
         <label for="ngayra">Ngày vào:</label>
         <input type="date" id="ngayvao" name="ngayvao" required><br><br>
-
+		
+		<%if(request.getAttribute("mes") != null){%>
+			<p style="color: red;"><%= request.getAttribute("mes")%></p>
+		<%}%>
         <input type="submit" value="Thêm xe vào">
     </form>
 </body>

@@ -15,4 +15,6 @@ public interface xeraDAO {
 	
 	public void xoaXeRa(String id);
 
+	public List<xera> kiemtra(String iDXeRa, String iDThe);
+
 }

@@ -187,7 +187,7 @@ table {
 							<td>${xe.ngayra}</td>
 							<td>${xe.gio}</td>
 							<td>${xe.dongia}</td>
-							<td><a href="/QLProject/phieuThanhT?id=${xe.xe.iDThe}">Thanh toán</a></td>
+							<td><a href="/QLProject/phieuThanhT?id=${xe.iDThe}">Thanh toán</a></td>
 							<td><a href="/QLProject/xoaxeR?id=${xe.iDXeRa}">Xóa</a></td>
 						</tr>
 				</c:forEach>

@@ -13,4 +13,6 @@ public interface xevaoDAO {
 	public void themXeVao(xevao xv);
 	
 	public void xoaXeVao(String id);
+
+	public List<xevao> kiemtra(String iDXeVao, String iDThe);
 }

@@ -38,7 +38,7 @@ public class thanhtoanDAOImpl implements thanhtoanDAO {
 	@Override
 	public void themThanhT(thanhtoan tht) {
 		// TODO Auto-generated method stub
-		String sql = "Insert into Xevao(idthanhtoan, bienso, hinhthucthanhtoan, sotien) values (?,?,?,?)";
+		String sql = "Insert into thanhtoan(idthanhtoan, bienso, hinhthucthanhtoan, sotien) values (?,?,?,?)";
 		jdbcTemplate.update(sql, tht.getiDThanhToan(), tht.getBienSo(), tht.getHinhThucThanhToan(), tht.getSoTien());
 	}
 
