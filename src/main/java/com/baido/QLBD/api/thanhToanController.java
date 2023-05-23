@@ -40,17 +40,23 @@ public class thanhToanController {
 		}
 		List<thanhtoan> tht = thanht.list();
 		float sum = 0;
-//		for(int i = 0; i < tht.size(); i++) {
-//			sum = sum + tht.get(3);
-//		}
+		for(int i = 0; i < tht.size(); i++) {
+			sum = sum + tht.get(i).getSoTien();
+		}
+		request.setAttribute("tongTien", sum);
 		model.addObject("thanhT", tht);
 		model.setViewName("thanhToan");
 		return model;
 	}
 	
 	@GetMapping("/phieuThanhT")
-	public ModelAndView phieuThanhToan(ModelAndView model, @RequestParam String id) {
+	public ModelAndView phieuThanhToan(ModelAndView model, @RequestParam String id, 
+			@RequestParam String id2, @RequestParam String id3, @RequestParam String id4) {
 		
+		float sum = Float.parseFloat(id3)*Float.parseFloat(id4);
+		
+		model.addObject("sum", sum);
+		model.addObject("id2", id2);
 		model.addObject("id", id);
 		model.setViewName("phieuThanhToan");
 		return model;
@@ -60,9 +66,9 @@ public class thanhToanController {
 	public ModelAndView themThanhToan(ModelAndView model, @RequestParam String id_xe, @RequestParam String bien_so
 			, @RequestParam String hinh_thuc_thanh_toan, @RequestParam String so_tien) {
 		
-		thanhtoan tht = new thanhtoan(id_xe, bien_so, hinh_thuc_thanh_toan, Integer.parseInt(so_tien));
+		thanhtoan tht = new thanhtoan(id_xe, bien_so, hinh_thuc_thanh_toan, Float.parseFloat(so_tien));
 		thanht.themThanhT(tht);
-		model.setViewName("index");	
+		model.setViewName("redirect:/thanhtoan");	
 		return model;
 	}
 }

@@ -180,7 +180,7 @@ table {
 				</c:forEach>
 				<tr>
 					<td colspan="3">Tổng tiền: </td>
-					<td>Tổng tiền: </td>
+					<td>${tongTien} </td>
 				</tr>
 			</table>
 		</div>

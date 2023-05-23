@@ -158,7 +158,7 @@ background-color: #ddd;
 			        </div>
 			        <div>
 			          <label for="bien_so">Biển số:</label>
-			          <input type="text" id="bien_so" name="bien_so" required>
+			          <input type="text" id="bien_so" name="bien_so" value="${id2}" required>
 			        </div>
 			        <div>
 			          <label for="hinh_thuc_thanh_toan">Hình thức thanh toán:</label>
@@ -170,7 +170,7 @@ background-color: #ddd;
 			        </div>
 			        <div>
 			          <label for="so_tien">Số tiền:</label>
-			          <input type="number" id="so_tien" name="so_tien" required>
+			          <input type="number" id="so_tien" name="so_tien" value="${sum}" required>
 			        </div>
 			        <div>
 			          <input type="submit" value="Thanh toán">

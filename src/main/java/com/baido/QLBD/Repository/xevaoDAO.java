@@ -15,4 +15,6 @@ public interface xevaoDAO {
 	public void xoaXeVao(String id);
 
 	public List<xevao> kiemtra(String iDXeVao, String iDThe);
+	
+	public String kiemtra_Tontai(String id);
 }

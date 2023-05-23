@@ -192,7 +192,7 @@ img {
 							<td><img src="${xe.bsx}" style="width:50px; height:40px"></td>
 							<td>${xe.loai}</td>
 							<td>${xe.ngayVao}</td>
-							<td><a href="/QLProject/xoaxeV?id=${xe.idXe}">Xóa</a></td>
+							<td><a href="/QLProject/xoaxeV?id=${xe.idXe}&id2=${xe.idThe}">Xóa</a></td>
 						</tr>
 				</c:forEach>
 			</table>

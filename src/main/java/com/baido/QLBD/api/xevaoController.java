@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.baido.QLBD.Repository.baidoDAO;
 import com.baido.QLBD.Repository.xevaoDAO;
 import com.baido.QLBD.entity.baido;
+import com.baido.QLBD.entity.xera;
 import com.baido.QLBD.entity.xevao;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -78,8 +80,11 @@ public class xevaoController {
 	}
 	
 	@GetMapping("/xoaxeV")
-	public String deleteXeVao(@RequestParam String id) {
+	public String deleteXeVao(@RequestParam String id, @RequestParam String id2) {
 		
+		if(xeVao.kiemtra_Tontai(id2) == "true") {
+			return "redirect:/xe_vao";
+		}
 		xeVao.xoaXeVao(id);
 		return "redirect:/xe_vao";		
 	}

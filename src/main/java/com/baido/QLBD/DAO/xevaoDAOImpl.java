@@ -1,5 +1,6 @@
 package com.baido.QLBD.DAO;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.baido.QLBD.Repository.xevaoDAO;
 import com.baido.QLBD.entity.Taikhoan;
+import com.baido.QLBD.entity.xera;
 import com.baido.QLBD.entity.xevao;
 
 @Repository
@@ -94,5 +96,24 @@ public class xevaoDAOImpl implements xevaoDAO {
 			return x;
 		});
 		return xv;
+	}
+
+	@Override
+	public String kiemtra_Tontai(String id) {
+		// TODO Auto-generated method stub
+		String sql = "Select IDXeRa from xera where IDXeRa = ?";
+		List<xera> exist = jdbcTemplate.query(sql, ps -> {
+			ps.setString(1, id);
+		}, (rs, rowNum) -> {
+			xera x = new xera();
+			x.setiDXeRa(rs.getString("IDXeRa"));
+			return x;
+		});
+		
+		if(exist.size() != 0) {
+			return "true";
+		}
+		
+		return "false";
 	}
 }
