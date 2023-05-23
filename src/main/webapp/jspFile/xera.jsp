@@ -109,10 +109,22 @@ table {
         text-align: left;
         border-bottom: 1px solid #ddd;
     }
-
+	
     th {
         background-color: #f2f2f2;
     }
+	td button {
+		background-color: red;
+	}
+	
+	td button a {
+		color: white;
+    	text-decoration: none;
+	}
+	
+	button:hover {
+    	background-color: pink;
+	}
 
     img {
         width: 100px;
@@ -156,7 +168,7 @@ table {
 				<li><a href="/QLProject/xe_vao"><i class="fa fa-arrow-circle-right"></i> Xe vào</a></li>
 				<li><a href="/QLProject/khu_vuc_do"><i class="fa fa-heart"></i> Khu vực đỗ</a></li>
 				<li><a href="/QLProject/xe_ra"><i class="fa fa-arrow-circle-left"></i> Xe ra</a></li>
-				<li><a href="/QLProject/thanhtoan"><i class="fa fa-money"></i> Thanh toán</a></li>
+				<li><a href="/QLProject/thanhtoan"><i class="fa fa-money"></i> Thống kê</a></li>
 				<li><a href="/QLProject/logout"><i class="fa fa-sign-in"></i> Đăng xuất</a></li>
 				<li><p>Tên người dùng: <%=session.getAttribute("user")%></p></li>
 			</ul>
@@ -177,6 +189,7 @@ table {
 			        <th>Ngày ra</th>
 			        <th>Giờ</th>
 			        <th>Đơn giá</th>
+			        <th>Thanh Toán</th>
 			        <th>Xóa</th>
 			    </tr>
 			    <c:forEach var="xe" items="${xeV}">
@@ -187,9 +200,9 @@ table {
 							<td>${xe.ngayra}</td>
 							<td>${xe.gio}</td>
 							<td>${xe.dongia}</td>
-							<td><a href="/QLProject/phieuThanhT?id=${xe.iDThe}&id2=${xe.bSX}
-							&id3=${xe.gio}&id4=${xe.dongia}">Thanh toán</a></td>
-							<td><a href="/QLProject/xoaxeR?id=${xe.iDXeRa}">Xóa</a></td>
+							<td><button><a href="/QLProject/phieuThanhT?id=${xe.iDThe}&id2=${xe.bSX}
+							&id3=${xe.gio}&id4=${xe.dongia}">Thanh toán</a></button></td>
+							<td><button><a href="/QLProject/xoaxeR?id=${xe.iDXeRa}">Xóa</a></button></td>
 						</tr>
 				</c:forEach>
 			</table>

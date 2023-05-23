@@ -118,7 +118,19 @@ th, td {
 th {
 	background-color: #f2f2f2;
 }
-
+td button {
+		background-color: red;
+	}
+	
+	td button a {
+		color: white;
+    	text-decoration: none;
+	}
+	
+	button:hover {
+    	background-color: pink;
+	}
+	
 img {
 	width: 100px;
 	height: 100px;
@@ -161,7 +173,7 @@ img {
 				<li><a href="/QLProject/xe_vao"><i class="fa fa-arrow-circle-right"></i> Xe vào</a></li>
 				<li><a href="/QLProject/khu_vuc_do"><i class="fa fa-heart"></i> Khu vực đỗ</a></li>
 				<li><a href="/QLProject/xe_ra"><i class="fa fa-arrow-circle-left"></i> Xe ra</a></li>
-				<li><a href="/QLProject/thanhtoan"><i class="fa fa-money"></i> Thanh toán</a></li>
+				<li><a href="/QLProject/thanhtoan"><i class="fa fa-money"></i> Thống kê</a></li>
 				<li><a href="/QLProject/logout"><i class="fa fa-sign-in"></i> Đăng xuất</a></li>
 				<li><p>Tên người dùng: <%=session.getAttribute("user")%></p></li>
 			</ul>
@@ -192,7 +204,7 @@ img {
 							<td><img src="${xe.bsx}" style="width:50px; height:40px"></td>
 							<td>${xe.loai}</td>
 							<td>${xe.ngayVao}</td>
-							<td><a href="/QLProject/xoaxeV?id=${xe.idXe}&id2=${xe.idThe}">Xóa</a></td>
+							<td><button><a href="/QLProject/xoaxeV?id=${xe.idXe}&id2=${xe.idThe}">Xóa</a></button></td>
 						</tr>
 				</c:forEach>
 			</table>

@@ -92,7 +92,6 @@
 	      </label>
 	    </div>
 	    <input type="submit" value="Đăng Nhập" class="form-submit">
-	    <a href="#" class="forgot-password">Quên mật khẩu?</a>
 	  </form>
 	</div>
 
