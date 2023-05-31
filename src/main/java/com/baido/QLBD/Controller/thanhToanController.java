@@ -1,4 +1,4 @@
-package com.baido.QLBD.api;
+package com.baido.QLBD.Controller;
 
 import java.util.List;
 
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.baido.QLBD.Model.thanhtoan;
+import com.baido.QLBD.Model.xevao;
 import com.baido.QLBD.Repository.thanhtoanDAO;
 import com.baido.QLBD.Repository.xeraDAO;
 import com.baido.QLBD.Repository.xevaoDAO;
-import com.baido.QLBD.entity.thanhtoan;
-import com.baido.QLBD.entity.xevao;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

@@ -2,7 +2,7 @@ package com.baido.QLBD.Repository;
 
 import java.util.List;
 
-import com.baido.QLBD.entity.Taikhoan;
+import com.baido.QLBD.Model.Taikhoan;
 
 public interface TaikhoanDAO {
 	

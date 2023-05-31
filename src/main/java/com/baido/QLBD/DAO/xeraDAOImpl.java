@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.baido.QLBD.Model.xera;
+import com.baido.QLBD.Model.xevao;
 import com.baido.QLBD.Repository.xeraDAO;
-import com.baido.QLBD.entity.xera;
-import com.baido.QLBD.entity.xevao;
 
 @Repository
 public class xeraDAOImpl implements xeraDAO {

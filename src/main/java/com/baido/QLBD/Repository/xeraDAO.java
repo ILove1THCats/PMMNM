@@ -2,8 +2,8 @@ package com.baido.QLBD.Repository;
 
 import java.util.List;
 
-import com.baido.QLBD.entity.xera;
-import com.baido.QLBD.entity.xevao;
+import com.baido.QLBD.Model.xera;
+import com.baido.QLBD.Model.xevao;
 
 public interface xeraDAO {
 	

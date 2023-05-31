@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.baido.QLBD.Model.thanhtoan;
 import com.baido.QLBD.Repository.thanhtoanDAO;
-import com.baido.QLBD.entity.thanhtoan;
 
 @Repository
 public class thanhtoanDAOImpl implements thanhtoanDAO {

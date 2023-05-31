@@ -156,13 +156,13 @@ table {
 				<li><a href="/QLProject/xe_vao"><i class="fa fa-arrow-circle-right"></i> Xe vào</a></li>
 				<li><a href="/QLProject/khu_vuc_do"><i class="fa fa-heart"></i> Khu vực đỗ</a></li>
 				<li><a href="/QLProject/xe_ra"><i class="fa fa-arrow-circle-left"></i> Xe ra</a></li>
-				<li><a href="/QLProject/thanhtoan"><i class="fa fa-money"></i> Thanh toán</a></li>
+				<li><a href="/QLProject/thanhtoan"><i class="fa fa-money"></i>Thống kê</a></li>
 				<li><a href="/QLProject/logout"><i class="fa fa-sign-in"></i> Đăng xuất</a></li>
 				<li><p>Tên người dùng: <%=session.getAttribute("user")%></p></li>
 			</ul>
 		</div>
 		<div class="main">
-			<h1>Thanh toán</h1>
+			<h1>Thống kê</h1>
 			<table>
 			    <tr>
 			    	<th>ID thanh toán</th>

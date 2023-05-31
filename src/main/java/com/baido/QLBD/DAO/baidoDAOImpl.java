@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.baido.QLBD.Model.baido;
 import com.baido.QLBD.Repository.baidoDAO;
-import com.baido.QLBD.entity.baido;
 
 @Repository
 public class baidoDAOImpl implements baidoDAO {

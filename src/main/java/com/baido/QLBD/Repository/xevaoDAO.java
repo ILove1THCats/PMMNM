@@ -2,7 +2,7 @@ package com.baido.QLBD.Repository;
 
 import java.util.List;
 
-import com.baido.QLBD.entity.xevao;
+import com.baido.QLBD.Model.xevao;
 
 public interface xevaoDAO {
 	

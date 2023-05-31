@@ -1,4 +1,4 @@
-package com.baido.QLBD.api;
+package com.baido.QLBD.Controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,11 +13,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.baido.QLBD.Model.baido;
+import com.baido.QLBD.Model.xera;
+import com.baido.QLBD.Model.xevao;
 import com.baido.QLBD.Repository.baidoDAO;
 import com.baido.QLBD.Repository.xevaoDAO;
-import com.baido.QLBD.entity.baido;
-import com.baido.QLBD.entity.xera;
-import com.baido.QLBD.entity.xevao;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

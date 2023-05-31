@@ -1,4 +1,4 @@
-package com.baido.QLBD.dbo;
+package com.baido.QLBD.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

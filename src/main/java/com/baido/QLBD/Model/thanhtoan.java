@@ -1,4 +1,4 @@
-package com.baido.QLBD.entity;
+package com.baido.QLBD.Model;
 
 public class thanhtoan {
 	private String iDThanhToan;
